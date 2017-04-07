@@ -26,16 +26,29 @@
       </div>
 
     <script>
+        /*
+          LEEME
+          Esta pequeña aplicación muestra información de canales de youtube
+          haciendo uso del API de Youtube y javascript, para esto necesitas
+          SOLO UNA de dos cosas el ID de usuario o el Nombre del canal, ademas
+          una API KEY que consigues en la web de desarrolladores de google.
+
+          API KEY:
+          https://console.developers.google.com/apis/api/youtube/overview
+
+          Para más información del Youtube API:
+          https://developers.google.com/youtube/v3/
+
+        */
         var statistics = document.getElementById('yt_statistics');
         var snippet = document.getElementById('yt_snippet');
         /*
           Puedes usar un ID DE USUARIO (ytUserId) o el NOMBRE DEL CANAL(ytUserName),
           SOLO UNO de los dos.
         */
-
         var ytUserId = 'UC889zu__e-SchavhX7IB1ug';//ID del canal ejm: https://www.youtube.com/channel/[ID_DEL_CANAL]
         var ytUserName = ''; //Nombre de usuario ejm: https://www.youtube.com/user/[NOMBRE_DEL_CANAL]
-        var key = 'AIzaSyDLAGqHmC83wZMiklux5vtovQlyzyHe55I';//tu API Key
+        var key = '';//tu API Key de Google: https://console.developers.google.com/apis/api/youtube/overview
         var urlYTApi = "https://www.googleapis.com/youtube/v3/channels?";
         var urlStatistics = '';
         var conexion1;
@@ -100,8 +113,13 @@
           yt_link.href = url;
         }
 
-        // buscar(urlStatistics,youtubeStatistics);
+        /*
+          El evento load ejecutar la función buscar() por primera vez
+          luego la función setInterval() ejecuta la búsqueda cada 5 segundos
+          pero se puede asignar el tiempo que se desee.
+        */
         window.addEventListener('load',buscar(urlStatistics,youtubeStatistics),false);
+
         setInterval(function(){buscar(urlStatistics,youtubeStatistics);},5000);
     </script>
   </body>
